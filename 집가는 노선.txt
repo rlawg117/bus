@@ -1,0 +1,66 @@
+ 
+
+
+1. 643버스
+new kakao.maps.LatLng(37.47922092, 126.8918621),
+new kakao.maps.LatLng(37.48011533, 126.8887535),
+new kakao.maps.LatLng(37.3113833, 126.86695),
+new kakao.maps.LatLng(37.54818909, 126.9175062),
+new kakao.maps.LatLng(37.4938619, 126.8563774),
+new kakao.maps.LatLng(37.50080998, 126.8472236),
+new kakao.maps.LatLng(36.9490167, 127.0096833),
+new kakao.maps.LatLng(36.9893833, 127.02845),
+
+2. 700번
+new kakao.maps.LatLng(37.50901089,126.8420066),
+new kakao.maps.LatLng(37.50669905,126.8357222),
+new kakao.maps.LatLng(37.50640132,126.8284512),
+new kakao.maps.LatLng(37.50645,126.8102),
+new kakao.maps.LatLng(37.50695,126.8048),
+new kakao.maps.LatLng(37.5059,126.7989667),
+new kakao.maps.LatLng(37.5051333,126.79415),
+new kakao.maps.LatLng(37.5043833,126.7904167),
+new kakao.maps.LatLng(37.50355,126.7850667),
+new kakao.maps.LatLng(37.5031333,126.7829667),
+new kakao.maps.LatLng(37.5028667,126.77895),
+new kakao.maps.LatLng(37.5037,126.7728833),
+new kakao.maps.LatLng(37.50435,126.768),
+new kakao.maps.LatLng(37.50465,126.76575),
+new kakao.maps.LatLng(37.5052,126.7611667),
+new kakao.maps.LatLng(37.5044,126.75775),
+
+3. 급행 1001
+new kakao.maps.LatLng(37.506, 126.7551),
+new kakao.maps.LatLng(37.50665, 126.7534667),
+new kakao.maps.LatLng(37.5082167, 126.7537833),
+new kakao.maps.LatLng(37.5105167, 126.75425)
+
+
+
+
+
+
+
+
+
+
+
+
+
+ new kakao.maps.LatLng(37.47922092, 126.8918621),
+   
+   new kakao.maps.LatLng(37.48011533, 126.8887535),
+   
+   new kakao.maps.LatLng(37.48974303, 126.8758257),
+   
+   new kakao.maps.LatLng(37.54818909, 126.9175062),
+   
+   new kakao.maps.LatLng(37.4938619, 126.8563774),
+   
+   new kakao.maps.LatLng(37.50080998, 126.8472236),
+   
+   new kakao.maps.LatLng(37.50742085, 126.8439634),
+   
+   new kakao.maps.LatLng(37.50901089, 126.8420066),
+   
+   new kakao.maps.LatLng(37.508418, 126.837237),
