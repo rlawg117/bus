@@ -5,44 +5,17 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<script type="text/javascript" src="../js/03.js"></script>
 </head>
 <body>
 
-643번
-가리봉파출소
-디지털단지 오거리
-구일우성아파트
-철산리버빌아파트
-개봉역
-개봉1동사거리.개봉푸르지오아파트
-신정학마을아파트
-신정현대아파트.서부트럭터미널
+<div>
+	<input id='name' onkeyup='printName()'/>
+	<div id='result'> </div>
+	<button type="submit" onclick="searchplace()"> <a href="https://map.kakao.com/?map_type=TYPE_MAP&target=car&rt=%2C%2C523953%2C1084098">검색하기</a> </button>
+</div>
 
 
-700번
-신정현대아파트 .서부트럭터미널
-신정숲속마을아파트.댓골마을입구
-궁동삼거리
-까치울역3번출구
-부천상록학교.은행나무주유소
-부천종합운동장역
-당아래지하차도.산업인력공단
-춘의가구거리
-춘의역5번출구
-부천고용복지플러스센터
-신중동역7번출구.심원고교.삼환아파트.중3주민지원센터
-신중동역4번출구.롯데백화점
-은하쌍용아파트
-부천시장역5번출구
-부천시청역4번출구.현대백화점.경기예고
-부천터미널소풍
-
-
-급행1001번
-상동역8번출구.세이브존
-상동역7번출구.세이브존
-써미트빌.진달래마을
-진달래대우.라일락신성아파트
 
 
 </body>
