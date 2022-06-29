@@ -17,12 +17,29 @@
 <script id="data">
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 mapOption = { 
-    center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+    center: new kakao.maps.LatLng(37.47922092, 126.8918621), // 지도의 중심좌표
     level: 10 // 지도의 확대 레벨 
 }; 
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
+//처음에 현재위치로 중심좌표 변경
+//HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+if (navigator.geolocation) {
+//GeoLocation을 이용해서 접속 위치를 얻어옵니다
+navigator.geolocation.getCurrentPosition(function(position) {
+  
+  var lat = position.coords.latitude, // 위도
+      lon = position.coords.longitude; // 경도
+  
+  var locPosition = new kakao.maps.LatLng(lat, lon);
+  map.setCenter(locPosition);         
+});
+} else {
+ var locPosition = new kakao.maps.LatLng(33.450701, 126.570667);
+ map.setCenter(locPosition);
+ alert("현재위치 사용 불가!!");   
+}
 
 
 /* var positions = [
@@ -32,7 +49,8 @@ var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니
 
 /* var po = ['살루쪼','일공공일안경콘택트 강남포이점']; */
 
-//마커 이미지의 이미지 주소입니다
+var markers=[];
+
 var imageSrc = "../resource/busicon.png"; 
 
 for (var i = 0; i < positions.length; i ++) {
@@ -50,19 +68,69 @@ var marker = new kakao.maps.Marker({
     title : po[i], // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
     image : markerImage // 마커 이미지 
 });
+
+markers.push(marker);
+
 }
+
+kakao.maps.event.addListener(marker, 'click', (function (marker, i) {
+    return function () {
+        //html로 표시될 인포 윈도우의 내용
+        infowindow.setContent(BUS_STOP[i][0]);
+        //인포윈도우가 표시될 위치
+        infowindow.open(map, marker);
+    }
+})(marker, i));
+
+if (marker) {
+    marker.addListener('click', function () {
+        //중심 위치를 클릭된 마커의 위치로 변경
+        map.setCenter(this.getPosition());
+        //마커 클릭 시의 줌 변화
+        map.setZoom(17);
+    });
+}
+
+
+
+var zoomControl = new kakao.maps.ZoomControl();
+map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+
+// 지도가 확대 또는 축소되면 마지막 파라미터로 넘어온 함수를 호출하도록 이벤트를 등록합니다
+kakao.maps.event.addListener(map, 'zoom_changed', function() {        
+    
+    // 지도의 현재 레벨을 얻어옵니다
+    var level = map.getLevel();
+    
+    console.log("현재 zoom level : " + level)
+    
+    if (level <= 6) {
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(map);
+        }
+    }
+    else {
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(null);
+        }
+    }
+});
+
+
 
 //선 그릴 좌표들
 var linePath1 = [
    //1. 643버스
-   new kakao.maps.LatLng(37.47922092, 126.8918621),
-   new kakao.maps.LatLng(37.48011533, 126.8887535),
-   new kakao.maps.LatLng(37.3113833, 126.86695),
-   new kakao.maps.LatLng(37.54818909, 126.9175062),
-   new kakao.maps.LatLng(37.4938619, 126.8563774),
-   new kakao.maps.LatLng(37.50080998, 126.8472236),
-   new kakao.maps.LatLng(36.9490167, 127.0096833),
-   new kakao.maps.LatLng(36.9893833, 127.02845)
+
+	new kakao.maps.LatLng(37.47922092, 126.8918621),
+	new kakao.maps.LatLng(37.48011533, 126.8887535),
+	new kakao.maps.LatLng(37.48974303, 126.8758257),
+	new kakao.maps.LatLng(37.4927, 126.8673333),
+	new kakao.maps.LatLng(37.4938619, 126.8563774),
+	new kakao.maps.LatLng(37.50080998, 126.8472236),
+	new kakao.maps.LatLng(37.50742085, 126.8439634),
+	new kakao.maps.LatLng(37.50901089, 126.8420066),
+	new kakao.maps.LatLng(37.508418, 126.837237)
    ];
    
 var linePath2 = [
