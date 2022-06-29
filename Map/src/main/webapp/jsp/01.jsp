@@ -12,14 +12,15 @@
    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c1c2c6824adf9d857eb9ea8f41dde8ba"></script>
    <script type="text/javascript" src="../js/01.js"></script>
    <link rel="stylesheet" href="../css/01.css">
+   <link rel="stylesheet" href="../css/mediaquery.css">
 </head>
 <body>
-<div id="map" style="width:100%;height:800px;"></div>
+<div id="map" style="width:100%;height:95vh;"></div>
 <script id="data">
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 mapOption = { 
     center: new kakao.maps.LatLng(37.47922092, 126.8918621), // 지도의 중심좌표
-    level: 10 // 지도의 확대 레벨 
+    level:7 // 지도의 확대 레벨 
 }; 
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -43,25 +44,14 @@ navigator.geolocation.getCurrentPosition(function(position) {
 }
 
 
-/* var positions = [
-    {lat: 37.51130452596103,lng: 127.04542646710686, },
-    {lat: 37.4772540117351,lng: 127.045480690923}
-]; */
-
-/* var po = ['살루쪼','일공공일안경콘택트 강남포이점']; */
 
 var markers=[];
-
 var imageSrc = "../resource/busicon.png"; 
-
 for (var i = 0; i < positions.length; i ++) {
-
 // 마커 이미지의 이미지 크기 입니다
 var imageSize = new kakao.maps.Size(10, 10); 
-
 // 마커 이미지를 생성합니다    
 var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
-
 // 마커를 생성합니다
 var marker = new kakao.maps.Marker({
     map: map, // 마커를 표시할 지도
@@ -69,9 +59,7 @@ var marker = new kakao.maps.Marker({
     title : po[i], // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
     image : markerImage // 마커 이미지 
 });
-
 markers.push(marker);
-
 }
 
 kakao.maps.event.addListener(marker, 'click', (function (marker, i) {
@@ -105,7 +93,7 @@ kakao.maps.event.addListener(map, 'zoom_changed', function() {
     
     console.log("현재 zoom level : " + level)
     
-    if (level <= 6) {
+    if (level <= 5) {
         for (var i = 0; i < markers.length; i++) {
             markers[i].setMap(map);
         }
@@ -195,7 +183,7 @@ polyline2.setMap(map);
 var polyline3 = new kakao.maps.Polyline({
     path: linePath3, // 선을 구성하는 좌표배열 입니다
     strokeWeight: 5, // 선의 두께 입니다
-    strokeColor: '#F31010', // 선의 색깔입니다
+    strokeColor: '#B019B9', // 선의 색깔입니다
     strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
     strokeStyle: 'solid' // 선의 스타일입니다
 });
