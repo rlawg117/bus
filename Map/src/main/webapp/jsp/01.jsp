@@ -11,6 +11,7 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c1c2c6824adf9d857eb9ea8f41dde8ba"></script>
    <script type="text/javascript" src="../js/01.js"></script>
+   <link rel="stylesheet" href="../css/01.css">
 </head>
 <body>
 <div id="map" style="width:100%;height:800px;"></div>
@@ -202,6 +203,62 @@ var polyline3 = new kakao.maps.Polyline({
 // 지도에 선을 표시합니다 
 polyline3.setMap(map);
 
+
+var distance = polyline1.getLength();
+console.log("거리 : " + distance)
+
+
+//선 거리 계산하기
+var distance = Math.round(polyline1.getLength() + polyline2.getLength() + polyline3.getLength());
+// 도보의 시속은 평균 4km/h 이고 도보의 분속은 67m/min입니다
+var walkkTime = distance / 67 | 0;
+var walkHour = '', walkMin = '';
+
+// 계산한 도보 시간이 60분 보다 크면 시간으로 표시합니다
+       if (walkkTime > 60) {
+           walkHour = '<span class="number">' + Math.floor(walkkTime / 60) + '</span>시간 '
+       }
+       walkMin = '<span class="number">' + walkkTime % 60 + '</span>분'
+
+       // 자전거의 평균 시속은 16km/h 이고 이것을 기준으로 자전거의 분속은 267m/min입니다
+       var bycicleTime = distance / 227 | 0;
+       var bycicleHour = '', bycicleMin = '';
+
+       // 계산한 자전거 시간이 60분 보다 크면 시간으로 표출합니다
+       if (bycicleTime > 60) {
+           bycicleHour = '<span class="number">' + Math.floor(bycicleTime / 60) + '</span>시간 '
+       }
+       bycicleMin = '<span class="number">' + bycicleTime % 60 + '</span>분'
+
+       // 거리와 도보 시간, 자전거 시간을 가지고 HTML Content를 만들어 리턴합니다
+       var content = '<ul class="dotOverlay distanceInfo">';
+       content += '    <li>';
+       content += '        <span class="label">총거리</span><span class="number">' + distance + '</span>m';
+       content += '    </li>';
+       content += '    <li>';
+       content += '        <span class="label">도보</span>' + walkHour + walkMin;
+       content += '    </li>';
+       content += '    <li>';
+       content += '        <span class="label">자전거</span>' + bycicleHour + bycicleMin;
+       content += '    </li>';
+       content += '</ul>'
+
+   
+   
+//커스텀 오버레이가 표시될 위치입니다 
+var position = new kakao.maps.LatLng(37.47922092, 126.8918621);  
+
+//커스텀 오버레이를 생성합니다
+var customOverlay = new kakao.maps.CustomOverlay({
+ position: position,
+ content: content,
+ xAnchor: 0,
+ yAnchor: 0,
+ zIndex: 3 
+});
+
+//커스텀 오버레이를 지도에 표시합니다
+customOverlay.setMap(map);
 
 
 
