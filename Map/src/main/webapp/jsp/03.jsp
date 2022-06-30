@@ -14,6 +14,7 @@
 </head>
 <body>
 <div class="map_wrap">
+<button type="button"><a href="00.jsp">뒤로가기</a> </button>
     <div id="map" style="width:100%;height:95vh;position:relative;overflow:hidden;"></div>
 
     <div id="menu_wrap" style="background-color: #fff; " >

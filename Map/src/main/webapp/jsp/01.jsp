@@ -15,7 +15,11 @@
    <link rel="stylesheet" href="../css/mediaquery.css">
 </head>
 <body>
-<div id="map" style="width:100%;height:95vh;"></div>
+<div>
+	<button type="button"><a href="00.jsp">뒤로가기</a> </button>
+</div>
+<div id="map" style="width:100%;height:93vh;"></div>
+
 <script id="data">
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 mapOption = { 
