@@ -4,8 +4,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>키워드로 장소검색하고 목록으로 표출하기</title>
+    <title>집까지 가는 버스정류장 목록 확인</title>
 <link rel="stylesheet" href="../css/02.css">
+<link rel="stylesheet" href="../css/mediaquery.css">
 <script type="text/javascript" src="../js/02.js" charset="utf-8"></script>
 </head>
 <body>
@@ -17,7 +18,7 @@
             <div>
                  <script type="text/javascript">
                  for (var i = 0; i < po.length; i ++) {
-                     document.write("<p class='name btn-gradient' style='font-size:14px' >"+po[i]+"</p>");
+                     document.write("<p class='name small' style='font-size:14px' >"+po[i]+"</p>");
                  }
                  </script>         
                 
